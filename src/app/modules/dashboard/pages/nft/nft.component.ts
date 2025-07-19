@@ -10,11 +10,11 @@ import { Nft } from '../../models/nft';
   selector: 'app-nft',
   templateUrl: './nft.component.html',
   imports: [
-    NftHeaderComponent,
-    NftDualCardComponent,
-    NftSingleCardComponent,
-    NftChartCardComponent,
-    NftAuctionsTableComponent,
+    // NftHeaderComponent,
+    // NftDualCardComponent,
+    // NftSingleCardComponent,
+    // NftChartCardComponent,
+    // NftAuctionsTableComponent,
   ],
 })
 export class NftComponent implements OnInit {

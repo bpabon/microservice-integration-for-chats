@@ -17,7 +17,7 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, appConfig).then(() => {
-  console.error('Compilado')
+  // console.error('Compilado')
 }).catch((err) =>
   console.error(err)
 );

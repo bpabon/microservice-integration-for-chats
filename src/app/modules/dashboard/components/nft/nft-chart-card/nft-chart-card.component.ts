@@ -98,14 +98,15 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
     };
 
     effect(() => {
-      /** change chart theme */
-      let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary');
-      this.chartOptions.tooltip = {
-        theme: this.themeService.theme().mode,
-      };
-      this.chartOptions.colors = [primaryColor];
-      this.chartOptions.stroke!.colors = [primaryColor];
-      this.chartOptions.xaxis!.crosshairs!.stroke!.color = primaryColor;
+      if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary');
+        this.chartOptions.tooltip = {
+          theme: this.themeService.theme().mode,
+        };
+        this.chartOptions.colors = [primaryColor];
+        this.chartOptions.stroke!.colors = [primaryColor];
+        this.chartOptions.xaxis!.crosshairs!.stroke!.color = primaryColor;
+      }
     });
   }
 
