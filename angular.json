@@ -118,7 +118,13 @@
           "options": {
             "browserTarget": "microservice-integration-for-chats:build:production",
             "serverTarget": "microservice-integration-for-chats:server:production",
-            "routes": ["/"]
+            "routes": [
+              "/",
+              "/auth/sign-in",
+              "/auth/sign-up",
+              "/auth/forgot-password",
+              "/errors/404",
+              "/errors/500"]
           }
         },
         "extract-i18n": {
