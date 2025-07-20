@@ -20,31 +20,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/microservice-integration-for-chats"
-            },
+            "outputPath": "dist/microservice-integration-for-chats/browser",
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "browser": "src/main.ts",
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "css",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
-            ],
-            "allowedCommonJsDependencies": [
-              "apexcharts"
-            ],
-            "browser": "src/main.ts",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"],
+            "allowedCommonJsDependencies": ["apexcharts"],
             "server": "src/main.server.ts",
-            "prerender": true,
+            "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -92,6 +79,48 @@
           },
           "defaultConfiguration": "development"
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/microservice-integration-for-chats/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "microservice-integration-for-chats:build",
+            "serverTarget": "microservice-integration-for-chats:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "microservice-integration-for-chats:build:production",
+              "serverTarget": "microservice-integration-for-chats:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "microservice-integration-for-chats:build:production",
+            "serverTarget": "microservice-integration-for-chats:server:production",
+            "routes": ["/"]
+          }
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
@@ -106,16 +135,9 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "css",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
           }
         }
       }
