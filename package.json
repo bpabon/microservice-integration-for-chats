@@ -30,6 +30,8 @@
     "prettier:verify": "prettier --config ./.prettierrc --check \"src/{app,environments}/**/*{.ts,.html,.scss,.json}\"",
     "prettier:staged": "pretty-quick --staged",
     "lint": "ng lint",
+    "build:ssr": "ng build --configuration=production && ng run microservice-integration-for-chats:server:production",
+    "prerender": "npm run build:ssr && ng run microservice-integration-for-chats:prerender",
     "serve:ssr:microservice-integration-for-chats": "node dist/microservice-integration-for-chats/server/server.mjs"
   },
   "private": true,

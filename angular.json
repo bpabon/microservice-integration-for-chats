@@ -101,7 +101,7 @@
           }
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "options": {
             "browserTarget": "microservice-integration-for-chats:build",
             "serverTarget": "microservice-integration-for-chats:server"
@@ -114,7 +114,7 @@
           }
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "microservice-integration-for-chats:build:production",
             "serverTarget": "microservice-integration-for-chats:server:production",
@@ -124,7 +124,10 @@
               "/auth/sign-up",
               "/auth/forgot-password",
               "/errors/404",
-              "/errors/500"]
+              "/dashboard",
+              "/dashboard/nfts",
+              "/errors/500"
+            ]
           }
         },
         "extract-i18n": {
@@ -141,11 +144,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "css",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/_redirects"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
             "styles": ["src/styles.css"],
             "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
           }
