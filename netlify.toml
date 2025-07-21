@@ -1,12 +1,12 @@
 [build]
-  command = "npm run build:prod"
-  publish = "dist/microservice-integration-for-chats"
+command = "npm run build:prod"
+publish = "dist/microservice-integration-for-chats/browser"
+functions = "netlify/functions"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/ssr"
   status = 200
-
 
 [build.environment]
   NODE_VERSION = "18.18.0"
