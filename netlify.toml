@@ -1,6 +1,6 @@
 [build]
 command = "npm run build:prod"
-publish = "dist/chats-micro-services/browser"
+publish = "dist/microservice-integration-for-chats/browser"
 functions = "netlify/functions"
 
 [[redirects]]
