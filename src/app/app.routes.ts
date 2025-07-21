@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
+import { SignUpComponent } from './modules/auth/pages/sign-up/sign-up.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+    component: SignUpComponent
+    // loadChildren: () => import('./modules/layout/layout.module').then((m) => m.LayoutModule),
   },
   {
     path: 'auth',
