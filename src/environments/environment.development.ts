@@ -1,5 +1,7 @@
+// declare const apiKey: string;
+
 export const environment = {
-  production: true,
+    production: false,
     apiUrl: 'http://localhost:3000',
     //apiKey,
 };
