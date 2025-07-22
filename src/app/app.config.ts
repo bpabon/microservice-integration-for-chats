@@ -22,7 +22,6 @@ export const appConfig: ApplicationConfig = {
      provideHttpClient(
       withFetch(),
       // withInterceptors([jwtInterceptor])
-    ), provideClientHydration(withEventReplay()),
-    // provideAppInitializer(async () => {
+    ),
   ]
 };
